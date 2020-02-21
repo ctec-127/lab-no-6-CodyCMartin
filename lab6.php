@@ -10,6 +10,10 @@
 <body>
 
 <?php
+
+// to prevent errors from showing up do to unset variables at first load of homepage
+error_reporting(0);
+
 // function to calculate converted temperature
 function convertTemp($temp, $unit1, $unit2)
 {
@@ -82,6 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $flag = false;
     $errors = [];
+    
 
     
 
@@ -149,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
           
        
-    // I coded the sticky code for the originaltemp field for you
+    
    
     
     
@@ -160,6 +165,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <!-- Form starts here -->
 <h1>Temperature Converter</h1>
 <h4>CTEC 127 - PHP with SQL 1</h4>
+
 <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
     <div class="group">
         <label for="temp">Temperature</label>
